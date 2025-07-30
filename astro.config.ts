@@ -1,12 +1,9 @@
 import { loadEnv } from "vite";
 import { defineConfig } from 'astro/config';
-
 import expressiveCode from 'astro-expressive-code';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import spectre from './package/src';
-
-import node from '@astrojs/node';
 import { spectreDark } from './src/ec-theme';
 
 const {
@@ -19,11 +16,12 @@ const {
   GISCUS_REACTIONS_ENABLED,
   GISCUS_EMIT_METADATA,
   GISCUS_LANG
+// biome-ignore lint/style/noNonNullAssertion: <explanation>
 } = loadEnv(process.env.NODE_ENV!, process.cwd(), "");
 
 // https://astro.build/config
 const config = defineConfig({
-  site: 'https://spectre.louisescher.dev',
+  site: 'https://matthiesen.dev',
   output: 'static',
   integrations: [
     expressiveCode({
@@ -32,15 +30,16 @@ const config = defineConfig({
     mdx(),
     sitemap(),
     spectre({
-      name: 'Spectre',
+      name: 'Adam Matthiesen',
+      twitterHandle: 'amatthiesen98',
       openGraph: {
         home: {
-          title: 'Spectre',
-          description: 'A minimalistic theme for Astro.'
+          title: 'Adam Matthiesen',
+          description: 'Network Engineer gone Software developer and Open Source enthusiast.',
         },
         blog: {
           title: 'Blog',
-          description: 'News and guides for Spectre.'
+          description: 'News and guides from Adam Matthiesen.'
         },
         projects: {
           title: 'Projects'
@@ -51,6 +50,7 @@ const config = defineConfig({
         repositoryId: GISCUS_REPO_ID,
         category: GISCUS_CATEGORY,
         categoryId: GISCUS_CATEGORY_ID,
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
         mapping: GISCUS_MAPPING as any,
         strict: GISCUS_STRICT === "true",
         reactionsEnabled: GISCUS_REACTIONS_ENABLED === "true",
@@ -59,9 +59,6 @@ const config = defineConfig({
       }
     })
   ],
-  adapter: node({
-    mode: 'standalone'
-  })
 });
 
 export default config;

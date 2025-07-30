@@ -1,9 +1,37 @@
 [
   {
     "id": 1,
-    "duration": "2024 - present",
-    "company": "Astro Community",
-    "title": "Astro Theme",
-    "description": "Existing as an Astro theme for anyone to use."
+    "duration": "2019 - Present",
+    "company": "Self-Employed",
+    "title": "Network Engineer and IT Consultant",
+    "description": "Worked as a freelance network engineer and IT consultant, providing services to various clients."
+  },
+  {
+    "id": 2,
+    "duration": "2021 - Present",
+    "company": "Upwork",
+    "title": "Information Technology Consultant",
+    "description": "Providing IT consulting services to clients on a project basis."
+  },
+  {
+    "id": 3,
+    "duration": "2024 - Present",
+    "company": "StudioCMS",
+    "title": "Creator and Core Maintainer",
+    "description": "Leading the development and maintenance of StudioCMS, an open-source content management system."
+  },
+  {
+    "id": 4,
+    "duration": "2024 - 2025",
+    "company": "Astro",
+    "title": "Support Patrol",
+    "description": "Providing support and assistance to users of the Astro framework, helping to resolve issues and improve the overall user experience through the community discord."
+  },
+  {
+    "id": 5,
+    "duration": "2025 - Present",
+    "company": "Astro",
+    "title": "Support Patrol & Maintainer",
+    "description": "Continuing to provide support for the Astro framework while also taking on maintenance responsibilities to ensure the project's long-term success."
   }
 ]
