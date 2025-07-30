@@ -54,14 +54,16 @@ const ogImage = image?.src;
 			<meta property="article:modified_time" content={article.updatedAt.toISOString()} />
 		)}
 
-		<meta name="twitter:card" content="summary_large_image" />
+		{ogImage && (
+			<meta name="twitter:image" content={ogImage} />
+			<meta name="twitter:card" content="summary_large_image" />
+		)}
 		{twitterHandle && (
 			<meta name="twitter:site" content={twitterHandle} />
 			<meta name="twitter:creator" content={twitterHandle} />
 		)}
 		<meta name="twitter:title" content={title} />
 		{description && <meta name="twitter:description" content={description} />}
-		{ogImage && <meta name="twitter:image" content={ogImage} />}
 	</head>
 	<body>
 		<main data-pagefind-ignore={pagefindIgnore}>
