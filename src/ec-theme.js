@@ -1,7 +1,6 @@
 import githubDark from '@shikijs/themes/github-dark';
-import type { ThemeRegistration } from 'shiki';
 
-const spectreDark: ThemeRegistration = {
+const spectreDark = {
   ...githubDark,
   name: 'Spectre Dark',
   colors: {
