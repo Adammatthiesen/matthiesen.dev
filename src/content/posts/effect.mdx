@@ -142,6 +142,7 @@ This code defines a utility function `scrypt` that wraps the Node.js `scrypt` fu
 
 ```ts title="hash-effect.ts"
 import { type ScryptOptions, scrypt } from 'node:crypto';
+import { Effect } from 'studiocms/effect';
 
 /**
  * The `Scrypt` class provides a service for securely hashing passwords using the scrypt algorithm.
