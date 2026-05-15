@@ -1,6 +1,7 @@
 import { file, glob } from "astro/loaders";
 import { defineCollection, z, reference } from "astro:content";
 import type { icons as lucideIcons } from '@iconify-json/lucide/icons.json';
+// @ts-ignore
 import type { icons as simpleIcons } from '@iconify-json/simple-icons/icons.json';
 
 const other = defineCollection({
@@ -69,22 +70,4 @@ const posts = defineCollection({
   })
 });
 
-const projects = defineCollection({
-  loader: glob({ base: "src/content/projects", pattern: "**/*.{md,mdx}" }),
-  schema: ({ image }) => z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.coerce.date(),
-    image: image(),
-    link: z.string().url().optional(),
-    info: z.array(
-      z.object({
-        text: z.string(),
-        icon: z.union([lucideIconSchema, simpleIconSchema]),
-        link: z.string().url().optional(),
-      })
-    )
-  })
-});
-
-export const collections = { tags, posts, projects, other, quickInfo, socials, workExperience };
+export const collections = { tags, posts, other, quickInfo, socials, workExperience };

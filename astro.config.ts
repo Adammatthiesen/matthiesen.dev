@@ -4,7 +4,6 @@ import expressiveCode from 'astro-expressive-code';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import spectre from './package/src';
-import { spectreDark } from './src/ec-theme';
 
 const {
   GISCUS_REPO,
@@ -16,7 +15,7 @@ const {
   GISCUS_REACTIONS_ENABLED,
   GISCUS_EMIT_METADATA,
   GISCUS_LANG
-// biome-ignore lint/style/noNonNullAssertion: <explanation>
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
 } = loadEnv(process.env.NODE_ENV!, process.cwd(), "");
 
 // https://astro.build/config
@@ -24,9 +23,7 @@ const config = defineConfig({
   site: 'https://matthiesen.dev',
   output: 'static',
   integrations: [
-    expressiveCode({
-      themes: [spectreDark],
-    }),
+    expressiveCode(),
     mdx(),
     sitemap(),
     spectre({
@@ -40,9 +37,6 @@ const config = defineConfig({
         blog: {
           title: 'Blog',
           description: 'News and guides from Adam Matthiesen.'
-        },
-        projects: {
-          title: 'Projects'
         }
       },
       giscus: {
