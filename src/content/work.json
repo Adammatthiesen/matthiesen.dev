@@ -33,5 +33,12 @@
     "company": "Astro",
     "title": "Support Patrol & Maintainer",
     "description": "Continuing to provide support for the Astro framework while also taking on maintenance responsibilities to ensure the project's long-term success."
+  },
+  {
+    "id": 6,
+    "duration": "2026 - Present",
+    "company": "Java Minecraft Modding",
+    "title": "Mod Developer",
+    "description": "Developing mods for Minecraft using Java, creating custom content and features for the game."
   }
 ]

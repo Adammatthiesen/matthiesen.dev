@@ -5,11 +5,29 @@
       "type": "lucide",
       "name": "github"
     },
-    "text": "GitHub",
+    "text": "Personal GitHub",
     "link": "https://github.com/adammatthiesen"
   },
   {
     "id": 2,
+    "icon": {
+      "type": "lucide",
+      "name": "github"
+    },
+    "text": "Minecraft Modding GitHub",
+    "link": "https://github.com/Matthiesen-dev"
+  },
+  {
+    "id": 3,
+    "icon": {
+      "type": "simple-icons",
+      "name": "modrinth"
+    },
+    "text": "Modrinth",
+    "link": "https://modrinth.com/user/Adammatthiesen"
+  },
+  {
+    "id": 4,
     "icon": {
       "type": "simple-icons",
       "name": "bluesky"
@@ -18,7 +36,7 @@
     "link": "https://bsky.app/profile/matthiesen.dev"
   },
   {
-    "id": 3,
+    "id": 5,
     "icon": {
       "type": "simple-icons",
       "name": "linkedin"
@@ -27,12 +45,12 @@
     "link": "https://www.linkedin.com/in/amatthiesen1"
   },
   {
-    "id": 4,
+    "id": 6,
     "icon": {
       "type": "simple-icons",
-      "name": "buymeacoffee"
+      "name": "kofi"
     },
-    "text": "Buy Me a Coffee",
-    "link": "https://buymeacoffee.com/adammatthiesen"
+    "text": "Support me on Ko-fi",
+    "link": "https://ko-fi.com/matthiesendev"
   }
 ]
