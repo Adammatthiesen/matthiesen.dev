@@ -1,6 +1,6 @@
 import type { AstroIntegration } from 'astro';
 import { viteVirtualModulePluginBuilder } from './utils/virtual-module-plugin-builder';
-import { z } from 'astro/zod'; 
+import { z } from 'astro/zod';
 
 const openGraphOptionsSchema = z.object({
   /**
@@ -105,10 +105,6 @@ export const optionsSchema = z.object({
      * Open Graph meta tags for the blog page.
      */
     blog: openGraphOptionsSchema,
-    /**
-     * Open Graph meta tags for the projects page.
-     */
-    projects: openGraphOptionsSchema,
   }),
   /**
    * All of this information can be find on [giscus' config page](https://giscus.app) under "Enable giscus" after entering all information.
@@ -121,6 +117,7 @@ export const optionsSchema = z.object({
 
 export default function integration(options: z.infer<typeof optionsSchema>): AstroIntegration {
   if (typeof options.giscus === "object") {
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     const giscusOpts = (options.giscus as z.infer<typeof giscusObjectSchema>)!;
     const likelyUntouchedConfig = Object.keys(giscusOpts).every((key) => {
       const item = giscusOpts[key as keyof typeof giscusOpts];
@@ -135,30 +132,29 @@ export default function integration(options: z.infer<typeof optionsSchema>): Ast
 
   const validatedOptions = optionsSchema.parse(options);
 
-	const globals = viteVirtualModulePluginBuilder('spectre:globals', 'spectre-theme-globals', `
+  const globals = viteVirtualModulePluginBuilder('spectre:globals', 'spectre-theme-globals', `
     export const name = ${JSON.stringify(validatedOptions.name)};
     export const themeColor = ${JSON.stringify(validatedOptions.themeColor ?? '#8c5cf5')};
     export const twitterHandle = ${JSON.stringify(validatedOptions.twitterHandle)};
     export const openGraph = {
       home: ${JSON.stringify(validatedOptions.openGraph.home)},
       blog: ${JSON.stringify(validatedOptions.openGraph.blog)},
-      projects: ${JSON.stringify(validatedOptions.openGraph.projects)},
     };
     export const giscus = ${validatedOptions.giscus ? JSON.stringify(validatedOptions.giscus) : 'false'};
   `);
 
-	return {
-		name: 'spectre-theme',
-		hooks: {
-			'astro:config:setup': ({ updateConfig }) => {
-				updateConfig({
-					vite: {
-						plugins: [
+  return {
+    name: 'spectre-theme',
+    hooks: {
+      'astro:config:setup': ({ updateConfig }) => {
+        updateConfig({
+          vite: {
+            plugins: [
               globals(),
             ],
-					},
-				});
-			},
-		},
-	};
+          },
+        });
+      },
+    },
+  };
 }

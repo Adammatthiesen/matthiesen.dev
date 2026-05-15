@@ -18,10 +18,6 @@ interface OpenGraph {
    * Data for the blog page.
    */
   blog: OpenGraphInfo;
-  /**
-   * Data for the projects page.
-   */
-  projects: OpenGraphInfo;
 }
 
 interface GiscusOptions {

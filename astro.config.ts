@@ -15,7 +15,7 @@ const {
   GISCUS_REACTIONS_ENABLED,
   GISCUS_EMIT_METADATA,
   GISCUS_LANG
-// biome-ignore lint/style/noNonNullAssertion: <explanation>
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
 } = loadEnv(process.env.NODE_ENV!, process.cwd(), "");
 
 // https://astro.build/config
@@ -37,9 +37,6 @@ const config = defineConfig({
         blog: {
           title: 'Blog',
           description: 'News and guides from Adam Matthiesen.'
-        },
-        projects: {
-          title: 'Projects'
         }
       },
       giscus: {
