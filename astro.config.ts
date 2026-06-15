@@ -38,18 +38,6 @@ const config = defineConfig({
           title: 'Blog',
           description: 'News and guides from Adam Matthiesen.'
         }
-      },
-      giscus: {
-        repository: GISCUS_REPO,
-        repositoryId: GISCUS_REPO_ID,
-        category: GISCUS_CATEGORY,
-        categoryId: GISCUS_CATEGORY_ID,
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-        mapping: GISCUS_MAPPING as any,
-        strict: GISCUS_STRICT === "true",
-        reactionsEnabled: GISCUS_REACTIONS_ENABLED === "true",
-        emitMetadata: GISCUS_EMIT_METADATA === "true",
-        lang: GISCUS_LANG,
       }
     })
   ],

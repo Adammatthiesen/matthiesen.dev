@@ -3,21 +3,41 @@ import Icon from "./Icon.astro";
 import { name } from "spectre:globals";
 
 const path = Astro.url.pathname;
+
+const NAVLINKS = [
+  { name: "Maven", href: "https://maven.matthiesen.dev" },
+  { name: "MC Mods", href: "https://mods.matthiesen.dev" },
+  { name: "Blog", href: "/blog", active: path.startsWith("/blog") },
+];
 ---
 
 <nav>
   <a class="site-title" href="/">{name}</a>
   <ul>
+    {
+      NAVLINKS.map((link, index) => (
+        <>
+          <li>
+            <a href={link.href} class:list={{ active: link.active }}>
+              {link.name}
+            </a>
+          </li>
+          {index < NAVLINKS.length - 1 && <li class="nav-separator">/</li>}
+        </>
+      ))
+    }
+    <!-- 
     <li>
       <a href="https://maven.matthiesen.dev">Maven</a>
     </li>
+    <li class="nav-separator">/</li>
     <li>
       <a href="https://mods.matthiesen.dev">MC Mods</a>
     </li>
     <li class="nav-separator">/</li>
     <li>
       <a href="/blog" class:list={{ active: path.startsWith("/blog") }}>Blog</a>
-    </li>
+    </li> -->
   </ul>
   <button class="mobile-nav-toggle">
     <Icon
